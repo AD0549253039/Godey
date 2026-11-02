@@ -1,0 +1,16 @@
+# Local Postgres for development: `docker compose up -d`
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: verdant
+      POSTGRES_PASSWORD: verdant
+      POSTGRES_DB: verdant
+    ports:
+      - "5432:5432"
+    volumes:
+      - verdant-db:/var/lib/postgresql/data
+
+volumes:
+  verdant-db:
